@@ -5,13 +5,12 @@
   let data = rec {
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
     t64desktop = import ./t64desktop.nix { pkgs = pkgs; };
-    fhs = import ./fhs.nix {pkgs = pkgs; t64desktop = t64desktop;};
     };
   in with data;
   rec {
     packages.x86_64-linux =
     {
-      default = import ./default.nix { inherit pkgs; inherit t64desktop; inherit fhs; };
+      default = import ./default.nix { inherit pkgs; inherit t64desktop; };
     };
       
     apps.x86_64-linux = let
