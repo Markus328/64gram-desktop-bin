@@ -26,6 +26,7 @@ stdenv.mkDerivation {
   inherit version srcs;
   dontBuild = true;
   nativeBuildInputs = [ unzip ];
+  
   unpackPhase = ''
     unzip ${app}
   '';
@@ -34,6 +35,8 @@ stdenv.mkDerivation {
     mkdir -p $out/share/pixmaps 
     mkdir -p $out/share/applications 
     mkdir -p $out/share/icons/hicolor/256x256/apps
+    mkdir -p $out/share/fonts
+    mkdir -p $out/share/zoneinfo
 
     cp ./Telegram $out/bin
     cp ${icon} $out/share/pixmaps/telegram.png
