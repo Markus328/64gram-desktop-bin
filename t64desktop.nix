@@ -109,6 +109,6 @@ stdenv.mkDerivation {
   '';
   postFixup = ''
       patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 "$out/bin/telegram-desktop"
-      patchelf --set-rpath ${rpath} "$out/bin/telegram-desktop" || true
+      patchelf --set-rpath ${rpath} "$out/bin/telegram-desktop"
   '';
 }

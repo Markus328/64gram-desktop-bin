@@ -1,1 +1,5 @@
-{ pkgs , t64desktop }: t64desktop
+{
+  pkgs,
+  t64desktop,
+}:
+t64desktop
