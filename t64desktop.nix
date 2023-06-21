@@ -1,6 +1,5 @@
-{ pkgs, ...}:
-with pkgs;
-let
+{pkgs, ...}:
+with pkgs; let
   url_git = "https://github.com/TDesktop-x64/tdesktop";
   version = "1.0.85";
   srcs = [
@@ -21,28 +20,28 @@ let
   icon = builtins.elemAt srcs 1;
   app = builtins.elemAt srcs 2;
 in
-stdenv.mkDerivation {
-  pname = "64gram-desktop-bin";
-  inherit version srcs;
-  dontBuild = true;
-  nativeBuildInputs = [ unzip ];
-  
-  unpackPhase = ''
-    unzip ${app}
-  '';
-  installPhase = ''
-    mkdir -p $out/bin 
-    mkdir -p $out/share/pixmaps 
-    mkdir -p $out/share/applications 
-    mkdir -p $out/share/icons/hicolor/256x256/apps
-    mkdir -p $out/share/fonts
-    mkdir -p $out/share/zoneinfo
+  stdenv.mkDerivation {
+    pname = "64gram-desktop-bin";
+    inherit version srcs;
+    dontBuild = true;
+    nativeBuildInputs = [unzip];
 
-    cp ./Telegram $out/bin
-    cp ${icon} $out/share/pixmaps/telegram.png
-    cp ${icon} $out/share/icons/hicolor/256x256/apps/telegram.png
+    unpackPhase = ''
+      unzip ${app}
+    '';
+    installPhase = ''
+      mkdir -p $out/bin
+      mkdir -p $out/share/pixmaps
+      mkdir -p $out/share/applications
+      mkdir -p $out/share/icons/hicolor/256x256/apps
+      mkdir -p $out/share/fonts
+      mkdir -p $out/share/zoneinfo
 
-    cp ${desktop} $out/share/applications/telegram.desktop
-    sed -i 's/@CMAKE_INSTALL_FULL_BINDIR@\///g' $out/share/applications/telegram.desktop
-  '';
-}
+      cp ./Telegram $out/bin
+      cp ${icon} $out/share/pixmaps/telegram.png
+      cp ${icon} $out/share/icons/hicolor/256x256/apps/telegram.png
+
+      cp ${desktop} $out/share/applications/telegram.desktop
+      sed -i 's/@CMAKE_INSTALL_FULL_BINDIR@\///g' $out/share/applications/telegram.desktop
+    '';
+  }
