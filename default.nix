@@ -1,8 +1,5 @@
 {
   pkgs,
   t64desktop,
-  fhs,
-  generic ? false,
-  ...
 }:
-fhs
+t64desktop

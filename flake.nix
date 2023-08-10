@@ -5,10 +5,6 @@
     data = rec {
       pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
       t64desktop = import ./t64desktop.nix {pkgs = pkgs;};
-      fhs = import ./fhs.nix {
-        pkgs = pkgs;
-        t64desktop = t64desktop;
-      };
     };
   in
     with data; rec {
@@ -16,7 +12,6 @@
         default = import ./default.nix {
           inherit pkgs;
           inherit t64desktop;
-          inherit fhs;
         };
       };
 
