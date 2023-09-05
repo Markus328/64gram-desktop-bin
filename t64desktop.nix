@@ -1,10 +1,10 @@
 {pkgs, ...}:
 with pkgs; let
   url_git = "https://github.com/TDesktop-x64/tdesktop";
-  version = "1.0.88";
+  version = "1.0.91";
   srcs = [
     (fetchurl {
-      url = "${url_git}/raw/dev/lib/xdg/org.telegram.desktop.desktop";
+      url = "${url_git}/raw/dev/lib/xdg/io.github.tdesktop_x64.TDesktop.desktop";
       sha256 = "c17a58d7d3f730c3ca7924b47bb8d0a885171357fb5cddc3595b9f68f429a018";
     })
     (fetchurl {
@@ -13,7 +13,7 @@ with pkgs; let
     })
     (fetchurl {
       url = "${url_git}/releases/download/v${version}/64Gram_${version}_linux.zip";
-      sha256 = "f117f46a75c16abc3dff0b1c82f6d828ced3bbc3bc3f093d3dd2fa4f3fe2b28f";
+      sha256 = "9b9579370082c257cf5043b1de3cffd47abdc855d955406e2d454466087905a1";
     })
   ];
   desktop = builtins.elemAt srcs 0;
