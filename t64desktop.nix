@@ -107,7 +107,7 @@ in
       sed -i 's/@CMAKE_INSTALL_FULL_BINDIR@\///g' $out/share/applications/telegram.desktop
     '';
     postFixup = ''
-      patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 "$out/bin/telegram-desktop"
-      patchelf --set-rpath ${rpath} "$out/bin/telegram-desktop"
+      patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 "$out/bin/.telegram-desktop-wrapped"
+      patchelf --set-rpath ${rpath} "$out/bin/.telegram-desktop-wrapped"
     '';
   }
