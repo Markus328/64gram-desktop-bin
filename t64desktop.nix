@@ -1,7 +1,7 @@
 {pkgs, ...}:
 with pkgs; let
   url_git = "https://github.com/TDesktop-x64/tdesktop";
-  version = "1.0.98";
+  version = "1.1.14";
   srcs = [
     (fetchurl {
       url = "${url_git}/raw/dev/lib/xdg/io.github.tdesktop_x64.TDesktop.desktop";
@@ -13,14 +13,14 @@ with pkgs; let
     })
     (fetchurl {
       url = "${url_git}/releases/download/v${version}/64Gram_${version}_linux.zip";
-      sha256 = "t7c7MRWw3kdlucdiFhN3lNZ6aneb15MJH1mYV3ElhfU=";
+      sha256 = "YM/fbjlkCn3Kkl1vy3JBG43YTjNCRyYKtyhPB6Nbszc=";
     })
   ];
   desktop = builtins.elemAt srcs 0;
   icon = builtins.elemAt srcs 1;
   app = builtins.elemAt srcs 2;
 
-  rpath = pkgs.lib.makeLibraryPath [
+  rpath = lib.makeLibraryPath [
     glib
     fontconfig
     freetype
