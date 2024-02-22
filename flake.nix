@@ -24,6 +24,8 @@
         default = t64desktop;
       };
 
+      #ADD THIS NEXT
+      #_overlay = self.overlays.default;
       _overlays.default = final: prev: {
         t64gram = t64desktop;
       };
