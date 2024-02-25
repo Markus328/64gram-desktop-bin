@@ -16,25 +16,9 @@
         "type": "github"
       }
     },
-    "nosys": {
-      "locked": {
-        "lastModified": 1685411599,
-        "narHash": "sha256-+W6yxZXJwta1zIruKMmXwayLZvqLjRZ7L/VnQFNyRJw=",
-        "owner": "divnix",
-        "repo": "nosys",
-        "rev": "6e168298ce2f9aa9fc6ef85ded56b07f41d90d18",
-        "type": "github"
-      },
-      "original": {
-        "owner": "divnix",
-        "repo": "nosys",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "nosys": "nosys"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
